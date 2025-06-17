@@ -10,7 +10,7 @@ test("AdminPanel Envanto Kivicare Verify", async ({ page }) => {
     await EnvantoKivicareVerify(page, EnvantoKivicareVerifyLocator);
 })
 
-test.only("AdminPanel Admin Panel Verify", async ({ page }) => {
+test("AdminPanel Admin Panel Verify", async ({ page }) => {
     await page.goto(home_url);
     await page.locator("//li[@id='menu-item-830']").hover();
     await page.locator("//li[@id='menu-item-1285']").click();

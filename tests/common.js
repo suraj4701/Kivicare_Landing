@@ -20,7 +20,7 @@ const AdminPanelVerify = async (page, locator) => {
     ])
     await newPage.waitForLoadState('networkidle');
     const newPageUrl = newPage.url();
-    expect(newPageUrl).toBe("https://apps.iqonic.design/kivicare-laravel/login");
+    expect(newPageUrl).toBe("https://apps.iqonic.design/kivicare-laravel/admin/login");
     return newPage;
 }
 
