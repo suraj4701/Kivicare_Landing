@@ -75,7 +75,7 @@ test("ForDeveloper custom development", async ({ page }) => {
     expect(newPageUrl).toBe("https://iqonic.tech/healthcare/");
 })
 
-test.only("ForDeveloper tech support team", async ({ page }) => {
+test("ForDeveloper tech support team", async ({ page }) => {
     await page.goto(home_url);
     await page.locator("//li[@id='menu-item-1282']").hover()
     await page.locator("//li[@id='menu-item-1284']").click()
