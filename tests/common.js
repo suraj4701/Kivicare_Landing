@@ -72,7 +72,7 @@ const PatientAppPlaystore = async (page, locator) => {
     ])
     const newPageUrl = newPage.url();
     expect(newPageUrl).toBe("https://play.google.com/store/apps/details?id=com.wellness.customer");
-    const trustpilotLocator = newPage.locator("//span[contains(text(),'KiviCare')]");
+    const trustpilotLocator = newPage.locator("//body[1]/c-wiz[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/c-wiz[1]/div[2]/div[1]/div[1]/div[1]/div[1]/h1[1]");
     const verifytext = await trustpilotLocator.textContent();
     expect(verifytext).toContain('KiviCare');
     return newPage;
