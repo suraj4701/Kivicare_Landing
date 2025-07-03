@@ -38,7 +38,7 @@ test("PatientApp View Demo", async ({ page }) => {
     await page.goto(home_url);
     await page.locator("//li[@id='menu-item-830']").hover()
     await page.locator("//li[@id='menu-item-1287']").click()
-    const patientappLocator = page.locator("//body/div[@id='main-container']/main[@id='main']/div[1]/article[1]/div[1]/div[1]/div[5]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/a[1]");
+    const patientappLocator = page.locator("//body/div[@id='main-container']/main[@id='main']/div[1]/article[1]/div[1]/div[1]/div[6]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/a[1]");
     await patientappLocator.scrollIntoViewIfNeeded();
     await PatientAppPlaystore(page, patientappLocator);
 })

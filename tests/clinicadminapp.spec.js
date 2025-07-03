@@ -38,7 +38,7 @@ test("ClinicAdminApp View Demo", async ({ page }) => {
     await page.goto(home_url);
     await page.locator("//li[@id='menu-item-830']").hover();
     await page.locator("//li[@id='menu-item-1286']").click();
-    const adminpanelLocator = page.locator("//body/div[@id='main-container']/main[@id='main']/div[1]/article[1]/div[1]/div[1]/div[5]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]");
+    const adminpanelLocator = page.locator("//body/div[@id='main-container']/main[@id='main']/div[1]/article[1]/div[1]/div[1]/div[6]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/a[1]");
     await adminpanelLocator.scrollIntoViewIfNeeded();
     await EmployeeAppPlaystore(page, adminpanelLocator);
 })

@@ -39,7 +39,7 @@ test("PatientWebsite View Demo", async ({ page }) => {
     await page.goto(home_url);
     await page.locator("//li[@id='menu-item-830']").hover()
     await page.locator("//li[@id='menu-item-16860']").click()
-    const patientwebsiteLocator = page.locator("//body/div[@id='main-container']/main[@id='main']/div[1]/article[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]");
+    const patientwebsiteLocator = page.locator("//body/div[@id='main-container']/main[@id='main']/div[1]/article[1]/div[1]/div[1]/div[4]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/a[1]");
     await patientwebsiteLocator.scrollIntoViewIfNeeded();
     await PatientWebsiteVerify(page, patientwebsiteLocator);
 })
