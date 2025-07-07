@@ -1,5 +1,5 @@
-const { test, expect } = require('@playwright/test');
-const { TrustpilotVerify, EnvantoVerify, PatientAppPlaystore, EmployeeAppPlaystore, EmployeeAppAppstore } = require('./common');
+import { expect, test } from '@playwright/test';
+import { BookcallVerify, EmployeeAppAppstore, EmployeeAppPlaystore, EnvantoVerify, PatientAppPlaystore, TrustpilotVerify } from './common';
 const home_url = process.env.HOME_URL;
 
 test("ForDeveloper Trustpilot Verify", async ({ page }) => {
@@ -16,6 +16,14 @@ test("ForDeveloper Envanto Verify", async ({ page }) => {
     await page.locator("//li[@id='menu-item-1284']").click()
     const EnvantoVerifyLocator = page.locator("//body/div[@id='main-container']/main[@id='main']/div[1]/article[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[3]/div[1]");
     await EnvantoVerify(page, EnvantoVerifyLocator);
+})
+
+test("ForDeveloper Book a quick call", async ({ page }) => {
+    await page.goto(home_url);
+    await page.locator("//li[@id='menu-item-1282']").hover()
+    await page.locator("//li[@id='menu-item-1284']").click()
+    const EnvantoVerifyLocator = page.locator("//a[contains(text(),'Book a quick call.')]");
+    await BookcallVerify(page, EnvantoVerifyLocator);
 })
 
 test("ForDeveloper clinic and patient management system", async ({ page }) => {

@@ -1,5 +1,5 @@
-const { test, expect } = require('@playwright/test');
-const { EnvantoKivicareVerify } = require('./common');
+import { expect, test } from '@playwright/test';
+import { EnvantoKivicareVerify } from './common';
 const home_url = process.env.HOME_URL;
 
 test("Pricing buy", async ({ page }) => {

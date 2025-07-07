@@ -1,5 +1,5 @@
-const { test, expect } = require('@playwright/test');
-const { PatientWebsiteVerify, AdminPanelVerify, TrustpilotVerify, EnvantoVerify, PatientAppPlaystore, EmployeeAppPlaystore, EmployeeAppAppstore } = require('./common');
+import { expect, test } from '@playwright/test';
+import { AdminPanelVerify, BookcallVerify, EmployeeAppAppstore, EmployeeAppPlaystore, EnvantoVerify, PatientAppPlaystore, PatientWebsiteVerify, TrustpilotVerify } from './common';
 const home_url = process.env.HOME_URL;
 
 test("ExploreNow Trustpilot Verify", async ({ page }) => {
@@ -13,6 +13,18 @@ test("ExploreNow Trustpilot Verify", async ({ page }) => {
 
     const TrustpilotVerifyLocator = newPage.locator("//body/div[@id='main-container']/main[@id='main']/div[1]/article[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/a[1]");
     await TrustpilotVerify(newPage, TrustpilotVerifyLocator);
+})
+
+test("ExploreNow Book a quick call", async ({ page }) => {
+    await page.goto(home_url);
+    const explorenow = page.locator("//header/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/a[1]");
+
+    const [newPage] = await Promise.all([
+        page.context().waitForEvent('page'),
+        explorenow.click()
+    ])
+    const EnvantoVerifyLocator = newPage.locator("//a[contains(text(),'Book a quick call.')]");
+    await BookcallVerify(newPage, EnvantoVerifyLocator);
 })
 
 test("ExploreNow Envanto Verify", async ({ page }) => {

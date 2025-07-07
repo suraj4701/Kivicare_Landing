@@ -1,5 +1,5 @@
-const { test, expect } = require('@playwright/test');
-const { PatientWebsiteVerify, AdminPanelVerify, TrustpilotVerify, EnvantoVerify, EnvantoKivicareVerify } = require('./common');
+import { expect, test } from '@playwright/test';
+import { AdminPanelVerify, BookcallVerify, EnvantoKivicareVerify, EnvantoVerify, PatientWebsiteVerify, TrustpilotVerify } from './common';
 const home_url = process.env.HOME_URL;
 
 test("Home Patinet Website Verify", async ({ page }) => {
@@ -24,6 +24,12 @@ test("Home Envanto Verify", async ({ page }) => {
     await page.goto(home_url);
     const EnvantoVerifyLocator = page.locator("//body/div[@id='main-container']/main[@id='main']/div[1]/article[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[3]/div[1]");
     await EnvantoVerify(page, EnvantoVerifyLocator);
+})
+
+test("Home Book a quick call", async ({ page }) => {
+    await page.goto(home_url);
+    const EnvantoVerifyLocator = page.locator("//a[contains(text(),'Book a quick call.')]");
+    await BookcallVerify(page, EnvantoVerifyLocator);
 })
 
 test("Home Explore Patients Website", async ({ page }) => {
@@ -66,6 +72,20 @@ test("Home Explore Admin Panel", async ({ page }) => {
     expect(newPageUrl).toBe("https://laravel.kivicare.io/product/admin-panel/");
 });
 
+test("Home Book a quick call 2", async ({ page }) => {
+    await page.goto(home_url);
+    const EnvantoVerifyLocator = page.locator("//body/div[@id='main-container']/main[@id='main']/div[1]/article[1]/div[1]/div[1]/div[7]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/a[1]");
+    await EnvantoVerifyLocator.scrollIntoViewIfNeeded();
+    await BookcallVerify(page, EnvantoVerifyLocator);
+})
+
+test("Home Book a quick call 3", async ({ page }) => {
+    await page.goto(home_url);
+    const EnvantoVerifyLocator = page.locator("//body/div[@id='main-container']/main[@id='main']/div[1]/article[1]/div[1]/div[1]/div[10]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/a[1]");
+    await EnvantoVerifyLocator.scrollIntoViewIfNeeded();
+    await BookcallVerify(page, EnvantoVerifyLocator);
+})
+
 test("Home Buy now", async ({ page }) => {
     await page.goto(home_url);
     const EnvantoKivicareVerifyLocator = page.locator("//body/div[@id='main-container']/main[@id='main']/div[1]/article[1]/div[1]/div[1]/div[11]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/a[1]");
@@ -105,6 +125,13 @@ test("Home Buy Service", async ({ page }) => {
     ])
     const newPageUrl = newPage.url();
     expect(newPageUrl).toBe("https://service.iqonic.design/services/kivicare-flutter-app-with-laravel-backend/");
+})
+
+test("Home Book a quick call 4", async ({ page }) => {
+    await page.goto(home_url);
+    const EnvantoVerifyLocator = page.locator("//body/div[@id='main-container']/main[@id='main']/div[1]/article[1]/div[1]/div[1]/div[15]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/a[1]");
+    await EnvantoVerifyLocator.scrollIntoViewIfNeeded();
+    await BookcallVerify(page, EnvantoVerifyLocator);
 })
 
 test("Home Buy now 5", async ({ page }) => {

@@ -1,5 +1,5 @@
-const { test, expect } = require('@playwright/test');
-const { TrustpilotVerify, EnvantoVerify } = require('./common');
+import { expect, test } from '@playwright/test';
+import { BookcallVerify, EnvantoVerify, TrustpilotVerify } from './common';
 const home_url = process.env.HOME_URL;
 
 test("ForMedicalProfessional Trustpilot Verify", async ({ page }) => {
@@ -16,6 +16,14 @@ test("ForMedicalProfessional Envanto Verify", async ({ page }) => {
     await page.locator("//li[@id='menu-item-1283']").click()
     const EnvantoVerifyLocator = page.locator("//body/div[@id='main-container']/main[@id='main']/div[1]/article[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[3]/div[1]/a[1]");
     await EnvantoVerify(page, EnvantoVerifyLocator);
+})
+
+test("ForMedicalProfessional Book a quick call", async ({ page }) => {
+    await page.goto(home_url);
+    await page.locator("//li[@id='menu-item-1282']").hover()
+    await page.locator("//li[@id='menu-item-1283']").click()
+    const EnvantoVerifyLocator = page.locator("//a[contains(text(),'Book a quick call.')]");
+    await BookcallVerify(page, EnvantoVerifyLocator);
 })
 
 test("ForMedicalProfessional laravel clinic management solution", async ({ page }) => {

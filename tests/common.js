@@ -106,4 +106,15 @@ const EmployeeAppAppstore = async (page, locator) => {
     return newPage;
 }
 
-module.exports = { PatientWebsiteVerify, AdminPanelVerify, TrustpilotVerify, EnvantoVerify, EnvantoKivicareVerify, PatientAppPlaystore, EmployeeAppPlaystore, EmployeeAppAppstore };
+const BookcallVerify = async (page, locator) => {
+
+    const [newPage] = await Promise.all([
+        page.context().waitForEvent('page'),
+        locator.click()
+    ])
+    const newPageUrl = newPage.url();
+    expect(newPageUrl).toBe("https://tidycal.com/iqonicdesign/kivicare-laravel-app");
+    return newPage;
+}
+
+module.exports = { PatientWebsiteVerify, BookcallVerify, AdminPanelVerify, TrustpilotVerify, EnvantoVerify, EnvantoKivicareVerify, PatientAppPlaystore, EmployeeAppPlaystore, EmployeeAppAppstore };

@@ -1,5 +1,5 @@
-const { test, expect } = require('@playwright/test');
-const { TrustpilotVerify, EnvantoVerify, EnvantoKivicareVerify, AdminPanelVerify } = require('./common');
+import { expect, test } from '@playwright/test';
+import { AdminPanelVerify, BookcallVerify, EnvantoKivicareVerify, EnvantoVerify, TrustpilotVerify } from './common';
 const home_url = process.env.HOME_URL;
 
 test("AdminPanel Envanto Kivicare Verify", async ({ page }) => {
@@ -32,6 +32,23 @@ test("AdminPanel Envanto Verify", async ({ page }) => {
     await page.locator("//li[@id='menu-item-1285']").click();
     const EnvantoVerifyLocator = page.locator("//body/div[@id='main-container']/main[@id='main']/div[1]/article[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[3]/div[1]/a[1]");
     await EnvantoVerify(page, EnvantoVerifyLocator);
+})
+
+test("AdminPanel Book a quick call", async ({ page }) => {
+    await page.goto(home_url);
+    await page.locator("//li[@id='menu-item-830']").hover()
+    await page.locator("//li[@id='menu-item-1285']").click();
+    const EnvantoVerifyLocator = page.locator("//a[contains(text(),'Book a quick call.')]");
+    await BookcallVerify(page, EnvantoVerifyLocator);
+})
+
+test("AdminPanel Book a quick call 2", async ({ page }) => {
+    await page.goto(home_url);
+    await page.locator("//li[@id='menu-item-830']").hover()
+    await page.locator("//li[@id='menu-item-1285']").click();
+    const EnvantoVerifyLocator = page.locator("//body/div[@id='main-container']/main[@id='main']/div[1]/article[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/a[1]");
+    await EnvantoVerifyLocator.scrollIntoViewIfNeeded();
+    await BookcallVerify(page, EnvantoVerifyLocator);
 })
 
 test("AdminPanel View Demo", async ({ page }) => {
