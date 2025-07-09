@@ -5,7 +5,7 @@ const home_url = process.env.HOME_URL;
 test("Pricing buy", async ({ page }) => {
     await page.goto(home_url);
     await page.locator("//header/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/nav[1]/ul[1]/li[3]/a[1]").click();
-    const LinkLocator = page.locator("//body/div[@id='main-container']/main[@id='main']/div[1]/article[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[2]/div[3]");
+    const LinkLocator = page.locator("//body/div[@id='main-container']/main[@id='main']/div[1]/article[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[2]/div[3]/div[1]/ul[1]/li[1]/a[1]");
     await LinkLocator.scrollIntoViewIfNeeded();
 
     const [newPage] = await Promise.all([
@@ -67,7 +67,7 @@ test("Book Demo Call", async ({ page }) => {
 
 test("Buy now", async ({ page }) => {
     await page.goto(home_url);
-    const EnvantoKivicareVerifyLocator = page.locator("//header/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/a[1]")
+    const EnvantoKivicareVerifyLocator = page.locator("//header/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/a[1]")
     await EnvantoKivicareVerifyLocator.scrollIntoViewIfNeeded();
     await EnvantoKivicareVerify(page, EnvantoKivicareVerifyLocator);
 })

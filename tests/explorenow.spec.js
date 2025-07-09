@@ -4,7 +4,7 @@ const home_url = process.env.HOME_URL;
 
 test("ExploreNow Trustpilot Verify", async ({ page }) => {
     await page.goto(home_url);
-    const explorenow = page.locator("//header/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/a[1]");
+    const explorenow = page.locator("//header/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/a[1]");
 
     const [newPage] = await Promise.all([
         page.context().waitForEvent('page'),
@@ -17,7 +17,7 @@ test("ExploreNow Trustpilot Verify", async ({ page }) => {
 
 test("ExploreNow Book a quick call", async ({ page }) => {
     await page.goto(home_url);
-    const explorenow = page.locator("//header/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/a[1]");
+    const explorenow = page.locator("//header/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/a[1]");
 
     const [newPage] = await Promise.all([
         page.context().waitForEvent('page'),
@@ -29,7 +29,7 @@ test("ExploreNow Book a quick call", async ({ page }) => {
 
 test("ExploreNow Envanto Verify", async ({ page }) => {
     await page.goto(home_url);
-    const explorenow = page.locator("//header/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/a[1]");
+    const explorenow = page.locator("//header/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/a[1]");
 
     const [newPage] = await Promise.all([
         page.context().waitForEvent('page'),
@@ -42,7 +42,7 @@ test("ExploreNow Envanto Verify", async ({ page }) => {
 
 test("ExploreNow Patient App Playstore", async ({ page }) => {
     await page.goto(home_url);
-    const explorenow = page.locator("//header/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/a[1]");
+    const explorenow = page.locator("//header/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/a[1]");
 
     const [newPage] = await Promise.all([
         page.context().waitForEvent('page'),
@@ -56,7 +56,7 @@ test("ExploreNow Patient App Playstore", async ({ page }) => {
 
 test("ExploreNow Employee App Playstore", async ({ page }) => {
     await page.goto(home_url);
-    const explorenow = page.locator("//header/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/a[1]");
+    const explorenow = page.locator("//header/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/a[1]");
 
     const [newPage] = await Promise.all([
         page.context().waitForEvent('page'),
@@ -70,7 +70,7 @@ test("ExploreNow Employee App Playstore", async ({ page }) => {
 
 test("ExploreNow Employee App Appstore", async ({ page }) => {
     await page.goto(home_url);
-    const explorenow = page.locator("//header/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/a[1]");
+    const explorenow = page.locator("//header/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/a[1]");
 
     const [newPage] = await Promise.all([
         page.context().waitForEvent('page'),
@@ -84,7 +84,7 @@ test("ExploreNow Employee App Appstore", async ({ page }) => {
 
 test("ExploreNow View Demo", async ({ page }) => {
     await page.goto(home_url);
-    const explorenow = page.locator("//header/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/a[1]");
+    const explorenow = page.locator("//header/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/a[1]");
 
     const [newPage] = await Promise.all([
         page.context().waitForEvent('page'),
@@ -98,7 +98,7 @@ test("ExploreNow View Demo", async ({ page }) => {
 
 test("ExploreNow Patinet Website Verify", async ({ page }) => {
     await page.goto(home_url);
-    const explorenow = page.locator("//header/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/a[1]");
+    const explorenow = page.locator("//header/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/a[1]");
 
     const [newPage] = await Promise.all([
         page.context().waitForEvent('page'),
@@ -112,7 +112,7 @@ test("ExploreNow Patinet Website Verify", async ({ page }) => {
 
 test("ExploreNow Contact Us", async ({ page }) => {
     await page.goto(home_url);
-    const explorenow = page.locator("//header/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/a[1]");
+    const explorenow = page.locator("//header/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/a[1]");
 
     const [newPage] = await Promise.all([
         page.context().waitForEvent('page'),
