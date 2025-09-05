@@ -24,7 +24,7 @@ test("GetHelp Docs", async ({ page }) => {
         support.click()
     ])
     const newPageUrl = newPage.url();
-    expect(newPageUrl).toBe("https://apps.iqonic.design/documentation/kivicare-laravel-doc/build/");
+    expect(newPageUrl).toBe("https://documentation.iqonic.design/kivicare-laravel/");
 })
 
 test("GetHelp FAQ", async ({ page }) => {

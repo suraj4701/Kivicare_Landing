@@ -62,7 +62,7 @@ test("Book Demo Call", async ({ page }) => {
         LinkLocator.click()
     ])
     const newPageUrl = newPage.url();
-    expect(newPageUrl).toBe("https://tidycal.com/iqonicdesign/kivicare-laravel-app");
+    expect(newPageUrl).toBe("https://laravel.kivicare.io/kivicare-laravel-demo-call/");
 })
 
 test("Buy now", async ({ page }) => {

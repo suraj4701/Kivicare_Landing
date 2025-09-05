@@ -256,7 +256,7 @@ test("Home Footer Doc", async ({ page }) => {
         LinkLocator.click()
     ])
     const newPageUrl = newPage.url();
-    expect(newPageUrl).toBe("https://apps.iqonic.design/documentation/kivicare-laravel-doc/build/");
+    expect(newPageUrl).toBe("https://documentation.iqonic.design/kivicare-laravel/");
 })
 
 test("Home Footer Pricing", async ({ page }) => {
