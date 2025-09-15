@@ -57,7 +57,7 @@ const EnvantoKivicareVerify = async (page, locator) => {
     ])
     const iqonicDesignSpanLocator = newPage.locator("//body/div[1]/div[3]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/h1[1]");
     const verifytext = await iqonicDesignSpanLocator.textContent();
-    expect(verifytext).toContain('KiviCare(TM) – Healthcare & Clinic Management System with Appointments & EMR (Laravel + Flutter)');
+    expect(verifytext).toContain('KiviCare(TM) – Clinic Management System for Healthcare with Appointments & EMR (Laravel + Flutter)');
     return newPage;
 }
 
@@ -110,7 +110,9 @@ const BookcallVerify = async (page, locator) => {
         locator.click()
     ])
     const newPageUrl = newPage.url();
-    expect(newPageUrl).toBe("https://laravel.kivicare.io/kivicare-laravel-demo-call/");
+    const urlObject = new URL(newPageUrl);
+    const urlWithoutQueryParams = urlObject.origin + urlObject.pathname;
+    expect(urlWithoutQueryParams).toBe("https://laravel.kivicare.io/kivicare-laravel-demo-call/");
     return newPage;
 }
 

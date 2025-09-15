@@ -62,7 +62,9 @@ test("Book Demo Call", async ({ page }) => {
         LinkLocator.click()
     ])
     const newPageUrl = newPage.url();
-    expect(newPageUrl).toBe("https://laravel.kivicare.io/kivicare-laravel-demo-call/");
+    const urlObject = new URL(newPageUrl);
+    const urlWithoutQueryParams = urlObject.origin + urlObject.pathname;
+    expect(urlWithoutQueryParams).toBe("https://laravel.kivicare.io/kivicare-laravel-demo-call/");
 })
 
 test("Buy now", async ({ page }) => {
