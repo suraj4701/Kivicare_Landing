@@ -87,3 +87,39 @@ test("PatientWebsite View Demo 4", async ({ page }) => {
     await patientwebsiteLocator.scrollIntoViewIfNeeded();
     await PatientWebsiteVerify(page, patientwebsiteLocator);
 })
+
+test("PatientWebsite View Demo 5", async ({ page }) => {
+    await page.goto(home_url);
+    await page.locator("//li[@id='menu-item-830']").hover()
+    await page.locator("//li[@id='menu-item-16860']").click()
+    const patientwebsiteLocator = page.locator("//div[contains(@class,'elementor-element elementor-element-132c3bf elementor-align-center elementor-widget elementor-widget-elementskit-button')]//a[contains(@class,'whitespace--normal')][normalize-space()='View Demo']");
+    await patientwebsiteLocator.scrollIntoViewIfNeeded();
+    await PatientWebsiteVerify(page, patientwebsiteLocator);
+})
+
+test("PatientWebsite View Demo 6", async ({ page }) => {
+    await page.goto(home_url);
+    await page.locator("//li[@id='menu-item-830']").hover()
+    await page.locator("//li[@id='menu-item-16860']").click()
+    const patientwebsiteLocator = page.locator("//div[contains(@class,'elementor-element elementor-element-bd0f9e0 elementor-align-center elementor-widget elementor-widget-elementskit-button')]//a[contains(@class,'whitespace--normal')][normalize-space()='View Demo']");
+    await patientwebsiteLocator.scrollIntoViewIfNeeded();
+    await PatientWebsiteVerify(page, patientwebsiteLocator);
+})
+
+test("PatientWebsite View Demo 7", async ({ page }) => {
+    await page.goto(home_url);
+    await page.locator("//li[@id='menu-item-830']").hover()
+    await page.locator("//li[@id='menu-item-16860']").click()
+    const patientwebsiteLocator = page.locator("//div[contains(@class,'elementor-element elementor-element-10fb387 elementor-align-center elementor-widget elementor-widget-elementskit-button')]//a[contains(@class,'whitespace--normal')][normalize-space()='View Demo']");
+    await patientwebsiteLocator.scrollIntoViewIfNeeded();
+    await PatientWebsiteVerify(page, patientwebsiteLocator);
+})
+
+test("PatientWebsite View Demo 8", async ({ page }) => {
+    await page.goto(home_url);
+    await page.locator("//li[@id='menu-item-830']").hover()
+    await page.locator("//li[@id='menu-item-16860']").click()
+    const patientwebsiteLocator = page.locator("//div[contains(@class,'elementor-element elementor-element-6a71b63 elementor-align-center elementor-widget elementor-widget-elementskit-button')]//a[contains(@class,'whitespace--normal')][normalize-space()='View Demo']");
+    await patientwebsiteLocator.scrollIntoViewIfNeeded();
+    await PatientWebsiteVerify(page, patientwebsiteLocator);
+})
