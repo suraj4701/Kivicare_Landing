@@ -246,9 +246,49 @@ test("Home Footer Admin Panel", async ({ page }) => {
     expect(newPageUrl).toBe("https://laravel.kivicare.io/product/admin-panel/");
 });
 
+test("Home Footer Hippa", async ({ page }) => {
+    await page.goto(home_url);
+    const LinkLocator = page.locator("//span[normalize-space()='Hipaa']");
+    await LinkLocator.scrollIntoViewIfNeeded();
+    await LinkLocator.click();
+    await page.waitForURL("https://laravel.kivicare.io/feature/hipaa/")
+    const newPageUrl = page.url();
+    expect(newPageUrl).toBe("https://laravel.kivicare.io/feature/hipaa/");
+});
+
+test("Home Footer Book For Other", async ({ page }) => {
+    await page.goto(home_url);
+    const LinkLocator = page.locator("//span[normalize-space()='Book For Other']");
+    await LinkLocator.scrollIntoViewIfNeeded();
+    await LinkLocator.click();
+    await page.waitForURL("https://laravel.kivicare.io/feature/book-for-other/")
+    const newPageUrl = page.url();
+    expect(newPageUrl).toBe("https://laravel.kivicare.io/feature/book-for-other/");
+});
+
+test("Home Footer Body Chart", async ({ page }) => {
+    await page.goto(home_url);
+    const LinkLocator = page.locator("//span[normalize-space()='Body Chart']");
+    await LinkLocator.scrollIntoViewIfNeeded();
+    await LinkLocator.click();
+    await page.waitForURL("https://laravel.kivicare.io/feature/body-chart/")
+    const newPageUrl = page.url();
+    expect(newPageUrl).toBe("https://laravel.kivicare.io/feature/body-chart/");
+});
+
+test("Home Footer Quick Appointment Booking", async ({ page }) => {
+    await page.goto(home_url);
+    const LinkLocator = page.locator("//span[normalize-space()='Quick Appointment Booking']");
+    await LinkLocator.scrollIntoViewIfNeeded();
+    await LinkLocator.click();
+    await page.waitForURL("https://laravel.kivicare.io/feature/quick-appointment-booking/")
+    const newPageUrl = page.url();
+    expect(newPageUrl).toBe("https://laravel.kivicare.io/feature/quick-appointment-booking/");
+});
+
 test("Home Footer Doc", async ({ page }) => {
     await page.goto(home_url);
-    const LinkLocator = page.locator("//body/div[@id='main-container']/footer[@id='footer']/div[1]/div[1]/article[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[2]/div[1]/ul[1]/li[1]");
+    const LinkLocator = page.locator("//span[normalize-space()='Docs']");
     await LinkLocator.scrollIntoViewIfNeeded();
 
     const [newPage] = await Promise.all([
@@ -261,7 +301,7 @@ test("Home Footer Doc", async ({ page }) => {
 
 test("Home Footer Pricing", async ({ page }) => {
     await page.goto(home_url);
-    const LinkLocator = page.locator("//body/div[@id='main-container']/footer[@id='footer']/div[1]/div[1]/article[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[2]/div[1]/ul[1]/li[2]");
+    const LinkLocator = page.locator("//span[normalize-space()='Pricing']");
     await LinkLocator.scrollIntoViewIfNeeded();
     await LinkLocator.click();
     await page.waitForURL("https://laravel.kivicare.io/pricing/")
@@ -271,7 +311,7 @@ test("Home Footer Pricing", async ({ page }) => {
 
 test("Home Footer FAQ", async ({ page }) => {
     await page.goto(home_url);
-    const LinkLocator = page.locator("//body/div[@id='main-container']/footer[@id='footer']/div[1]/div[1]/article[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[2]/div[1]/ul[1]/li[3]");
+    const LinkLocator = page.locator("//span[normalize-space()='FAQ']");
     await LinkLocator.scrollIntoViewIfNeeded();
     await LinkLocator.click();
     await page.waitForURL("https://laravel.kivicare.io/faq/")
@@ -279,19 +319,9 @@ test("Home Footer FAQ", async ({ page }) => {
     expect(newPageUrl).toBe("https://laravel.kivicare.io/faq/");
 });
 
-test("Home Footer Roadmap", async ({ page }) => {
-    await page.goto(home_url);
-    const LinkLocator = page.locator("//body/div[@id='main-container']/footer[@id='footer']/div[1]/div[1]/article[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[2]/div[1]/ul[1]/li[4]");
-    await LinkLocator.scrollIntoViewIfNeeded();
-    await LinkLocator.click();
-    await page.waitForURL("https://laravel.kivicare.io/roadmap/")
-    const newPageUrl = page.url();
-    expect(newPageUrl).toBe("https://laravel.kivicare.io/roadmap/");
-});
-
 test("Home Footer Support", async ({ page }) => {
     await page.goto(home_url);
-    const LinkLocator = page.locator("//body/div[@id='main-container']/footer[@id='footer']/div[1]/div[1]/article[1]/div[1]/div[1]/div[1]/div[1]/div[4]/div[2]/div[1]/ul[1]/li[1]");
+    const LinkLocator = page.locator("//span[normalize-space()='Support']");
     await LinkLocator.scrollIntoViewIfNeeded();
 
     const [newPage] = await Promise.all([
@@ -304,7 +334,7 @@ test("Home Footer Support", async ({ page }) => {
 
 test("Home Footer Get A Quote", async ({ page }) => {
     await page.goto(home_url);
-    const LinkLocator = page.locator("//body/div[@id='main-container']/footer[@id='footer']/div[1]/div[1]/article[1]/div[1]/div[1]/div[1]/div[1]/div[4]/div[2]/div[1]/ul[1]/li[2]");
+    const LinkLocator = page.locator("//span[normalize-space()='Get A Quote']");
     await LinkLocator.scrollIntoViewIfNeeded();
 
     const [newPage] = await Promise.all([
@@ -312,26 +342,28 @@ test("Home Footer Get A Quote", async ({ page }) => {
         LinkLocator.click()
     ])
     const newPageUrl = newPage.url();
-    expect(newPageUrl).toBe("https://iqonic.tech/cost-calculator/");
+    expect(newPageUrl).toBe("https://iqonic.tech/blog/quillforms/cost-calculator/");
 })
 
 test("Home Footer License", async ({ page }) => {
     await page.goto(home_url);
-    const LinkLocator = page.locator("//body/div[@id='main-container']/footer[@id='footer']/div[1]/div[1]/article[1]/div[1]/div[1]/div[1]/div[1]/div[4]/div[2]/div[1]/ul[1]/li[3]");
+    const LinkLocator = page.locator("//span[normalize-space()='License']");
     await LinkLocator.scrollIntoViewIfNeeded();
 
     const [newPage] = await Promise.all([
         page.context().waitForEvent('page'),
         LinkLocator.click()
     ])
-    const iqonicDesignSpanLocator = newPage.locator("//h2[contains(text(),'Licensing, Terms & More...')]");
-    const verifytext = await iqonicDesignSpanLocator.textContent();
-    expect(verifytext).toContain('Licensing, Terms & More...');
+
+    const newPageUrl = newPage.url();
+    const urlObject = new URL(newPageUrl);
+    const urlWithoutQueryParams = urlObject.origin + urlObject.pathname;
+    expect(urlWithoutQueryParams).toBe("https://iqonic.design/licensing-terms-more/");
 })
 
 test("Home Footer Hire Us", async ({ page }) => {
     await page.goto(home_url);
-    const LinkLocator = page.locator("//body/div[@id='main-container']/footer[@id='footer']/div[1]/div[1]/article[1]/div[1]/div[1]/div[1]/div[1]/div[4]/div[2]/div[1]/ul[1]/li[4]");
+    const LinkLocator = page.locator("//span[normalize-space()='hire us']");
     await LinkLocator.scrollIntoViewIfNeeded();
 
     const [newPage] = await Promise.all([
@@ -340,4 +372,20 @@ test("Home Footer Hire Us", async ({ page }) => {
     ])
     const newPageUrl = newPage.url();
     expect(newPageUrl).toBe("https://iqonic.tech/healthcare/");
+})
+
+test("Home Footer Iqonic Design.", async ({ page }) => {
+    await page.goto(home_url);
+    const LinkLocator = page.locator("//a[normalize-space()='Iqonic Design.']");
+    await LinkLocator.scrollIntoViewIfNeeded();
+
+    const [newPage] = await Promise.all([
+        page.context().waitForEvent('page'),
+        LinkLocator.click()
+    ])
+
+    const newPageUrl = newPage.url();
+    const urlObject = new URL(newPageUrl);
+    const urlWithoutQueryParams = urlObject.origin + urlObject.pathname;
+    expect(urlWithoutQueryParams).toBe("https://iqonic.design/");
 })
