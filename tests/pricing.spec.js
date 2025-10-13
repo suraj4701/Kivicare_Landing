@@ -4,7 +4,7 @@ const home_url = process.env.HOME_URL;
 
 test("Pricing buy", async ({ page }) => {
     await page.goto(home_url);
-    await page.locator("//header/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/nav[1]/ul[1]/li[3]/a[1]").click();
+    await page.locator("//li[@id='menu-item-1604']").click();
     const LinkLocator = page.locator("//body/div[@id='main-container']/main[@id='main']/div[1]/article[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[2]/div[3]/div[1]/ul[1]/li[1]/a[1]");
     await LinkLocator.scrollIntoViewIfNeeded();
 
@@ -19,7 +19,7 @@ test("Pricing buy", async ({ page }) => {
 
 test("Pricing Buy 2", async ({ page }) => {
     await page.goto(home_url);
-    await page.locator("//header/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/nav[1]/ul[1]/li[3]/a[1]").click();
+    await page.locator("//li[@id='menu-item-1604']").click();
     const LinkLocator = page.locator("//body/div[@id='main-container']/main[@id='main']/div[1]/article[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[3]/div[2]");
     await LinkLocator.scrollIntoViewIfNeeded();
 
@@ -33,7 +33,7 @@ test("Pricing Buy 2", async ({ page }) => {
 
 test("Pricing Envanto Kivicare Verify", async ({ page }) => {
     await page.goto(home_url);
-    await page.locator("//header/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/nav[1]/ul[1]/li[3]/a[1]").click();
+    await page.locator("//li[@id='menu-item-1604']").click();
     const EnvantoKivicareVerifyLocator = page.locator("//body/div[@id='main-container']/main[@id='main']/div[1]/article[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[2]/div[1]/div[1]/a[1]");
     await EnvantoKivicareVerifyLocator.scrollIntoViewIfNeeded();
     await EnvantoKivicareVerify(page, EnvantoKivicareVerifyLocator);
