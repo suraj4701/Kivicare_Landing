@@ -91,7 +91,7 @@ test("ExploreNow View Demo", async ({ page }) => {
         explorenow.click()
     ])
 
-    const adminpanelLocator = newPage.locator("//body/div[@id='main-container']/main[@id='main']/div[1]/article[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[1]/div[1]/a[1]");
+    const adminpanelLocator = newPage.locator("//a[contains(@href,'https://apps.iqonic.design/kivicare-laravel/admin/login')]");
     await adminpanelLocator.scrollIntoViewIfNeeded();
     await AdminPanelVerify(newPage, adminpanelLocator);
 })
@@ -119,7 +119,7 @@ test("ExploreNow Contact Us", async ({ page }) => {
         explorenow.click()
     ])
 
-    const Locator = newPage.locator("//body/div[@id='main-container']/main[@id='main']/div[1]/article[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[3]/div[3]/div[1]/div[1]/div[1]/a[1]");
+    const Locator = newPage.locator("//div[contains(@class,'elementor-element elementor-element-e9be904 elementor-align-left elementor-widget elementor-widget-elementskit-button')]//a[contains(@class,'whitespace--normal')][normalize-space()='Contact Us']");
     await Locator.scrollIntoViewIfNeeded();
 
     const [newPage1] = await Promise.all([

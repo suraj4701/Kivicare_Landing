@@ -342,7 +342,7 @@ test("Home Footer Get A Quote", async ({ page }) => {
         LinkLocator.click()
     ])
     const newPageUrl = newPage.url();
-    expect(newPageUrl).toBe("https://iqonic.tech/blog/quillforms/cost-calculator/");
+    expect(newPageUrl).toBe("https://iqonic.tech/ai-cost-calculator/");
 })
 
 test("Home Footer License", async ({ page }) => {
