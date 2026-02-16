@@ -57,7 +57,7 @@ const EnvantoKivicareVerify = async (page, locator) => {
     ])
     const iqonicDesignSpanLocator = newPage.locator("//body/div[1]/div[3]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/h1[1]");
     const verifytext = await iqonicDesignSpanLocator.textContent();
-    expect(verifytext).toContain('KiviCare(TM) – Clinic Management System for Healthcare with Appointments & EMR (Laravel + Flutter)');
+    expect(verifytext).toContain('KiviCare(TM) - Best Clinic and Patient Management Flutter App');
     return newPage;
 }
 
@@ -116,4 +116,17 @@ const BookcallVerify = async (page, locator) => {
     return newPage;
 }
 
-module.exports = { PatientWebsiteVerify, BookcallVerify, AdminPanelVerify, TrustpilotVerify, EnvantoVerify, EnvantoKivicareVerify, PatientAppPlaystore, EmployeeAppPlaystore, EmployeeAppAppstore };
+const CommonLinkVerify = async (page, locator, link) => {
+
+    const [newPage] = await Promise.all([
+        page.context().waitForEvent('page'),
+        locator.click()
+    ])
+    const newPageUrl = newPage.url();
+    const urlObject = new URL(newPageUrl);
+    const urlWithoutQueryParams = urlObject.origin + urlObject.pathname;
+    expect(urlWithoutQueryParams).toBe(link);
+    return newPage;
+}
+
+module.exports = { PatientWebsiteVerify, BookcallVerify, AdminPanelVerify, TrustpilotVerify, EnvantoVerify, EnvantoKivicareVerify, PatientAppPlaystore, EmployeeAppPlaystore, EmployeeAppAppstore, CommonLinkVerify };

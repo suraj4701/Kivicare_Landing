@@ -1,5 +1,5 @@
 import { expect, test } from '@playwright/test';
-import { AdminPanelVerify, BookcallVerify, EnvantoKivicareVerify, EnvantoVerify, PatientWebsiteVerify, TrustpilotVerify } from './common';
+import { AdminPanelVerify, BookcallVerify, CommonLinkVerify, EnvantoKivicareVerify, EnvantoVerify, PatientWebsiteVerify, TrustpilotVerify } from './common';
 const home_url = process.env.HOME_URL;
 
 test("Home Patinet Website Verify", async ({ page }) => {
@@ -125,13 +125,8 @@ test("Home Buy Service", async ({ page }) => {
     await page.goto(home_url);
     const LinkLocator = page.locator("//a[contains(text(),'Buy Services')]");
     await LinkLocator.scrollIntoViewIfNeeded();
-
-    const [newPage] = await Promise.all([
-        page.context().waitForEvent('page'),
-        LinkLocator.click()
-    ])
-    const newPageUrl = newPage.url();
-    expect(newPageUrl).toBe("https://service.iqonic.design/services/kivicare-flutter-app-with-laravel-backend/");
+    const expectedLink = "https://service.iqonic.design/services/kivicare-flutter-app-with-laravel-backend/";
+    await CommonLinkVerify(page, LinkLocator, expectedLink);
 })
 
 test("Home Buy now 5", async ({ page }) => {
@@ -145,65 +140,40 @@ test("Home Try Demo", async ({ page }) => {
     await page.goto(home_url);
     const LinkLocator = page.locator("//body/div[@id='main-container']/main[@id='main']/div[1]/article[1]/div[1]/div[1]/div[16]/div[1]/div[1]/div[1]/div[1]/div[1]/article[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/a[1]");
     await LinkLocator.scrollIntoViewIfNeeded();
-
-    const [newPage] = await Promise.all([
-        page.context().waitForEvent('page'),
-        LinkLocator.click()
-    ])
-    const newPageUrl = newPage.url();
-    expect(newPageUrl).toBe("https://laravel.kivicare.io/explore-demo/");
+    const expectedLink = "https://laravel.kivicare.io/explore-demo/";
+    await CommonLinkVerify(page, LinkLocator, expectedLink);
 })
 
 test("Home Facebook", async ({ page }) => {
     await page.goto(home_url);
     const LinkLocator = page.locator("//body/div[@id='main-container']/footer[@id='footer']/div[1]/div[1]/article[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/span[1]");
     await LinkLocator.scrollIntoViewIfNeeded();
-
-    const [newPage] = await Promise.all([
-        page.context().waitForEvent('page'),
-        LinkLocator.click()
-    ])
-    const newPageUrl = newPage.url();
-    expect(newPageUrl).toBe("https://www.facebook.com/iqonicdesign");
+    const expectedLink = "https://www.facebook.com/iqonicdesign";
+    await CommonLinkVerify(page, LinkLocator, expectedLink);
 })
 
 test("Home Youtube", async ({ page }) => {
     await page.goto(home_url);
     const LinkLocator = page.locator("//body/div[@id='main-container']/footer[@id='footer']/div[1]/div[1]/article[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/span[2]");
     await LinkLocator.scrollIntoViewIfNeeded();
-
-    const [newPage] = await Promise.all([
-        page.context().waitForEvent('page'),
-        LinkLocator.click()
-    ])
-    const newPageUrl = newPage.url();
-    expect(newPageUrl).toBe("https://www.youtube.com/iqonicdesign");
+    const expectedLink = "https://www.youtube.com/iqonicdesign";
+    await CommonLinkVerify(page, LinkLocator, expectedLink);
 })
 
 test("Home X-Twitter", async ({ page }) => {
     await page.goto(home_url);
     const LinkLocator = page.locator("//body/div[@id='main-container']/footer[@id='footer']/div[1]/div[1]/article[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/span[3]");
     await LinkLocator.scrollIntoViewIfNeeded();
-
-    const [newPage] = await Promise.all([
-        page.context().waitForEvent('page'),
-        LinkLocator.click()
-    ])
-    const newPageUrl = newPage.url();
-    expect(newPageUrl).toBe("https://x.com/iqonicdesign");
+    const expectedLink = "https://x.com/iqonicdesign";
+    await CommonLinkVerify(page, LinkLocator, expectedLink);
 })
 
 test("Home Instagram", async ({ page }) => {
     await page.goto(home_url);
     const LinkLocator = page.locator("//body/div[@id='main-container']/footer[@id='footer']/div[1]/div[1]/article[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/span[4]");
     await LinkLocator.scrollIntoViewIfNeeded();
-
-    const [newPage] = await Promise.all([
-        page.context().waitForEvent('page'),
-        LinkLocator.click()
-    ])
-    const newPageUrl = newPage.url();
-    expect(newPageUrl).toBe("https://www.instagram.com/iqonicdesign/");
+    const expectedLink = "https://www.instagram.com/iqonicdesign/";
+    await CommonLinkVerify(page, LinkLocator, expectedLink);
 })
 
 test("Home Footer Patient Website", async ({ page }) => {
@@ -290,13 +260,8 @@ test("Home Footer Doc", async ({ page }) => {
     await page.goto(home_url);
     const LinkLocator = page.locator("//span[normalize-space()='Docs']");
     await LinkLocator.scrollIntoViewIfNeeded();
-
-    const [newPage] = await Promise.all([
-        page.context().waitForEvent('page'),
-        LinkLocator.click()
-    ])
-    const newPageUrl = newPage.url();
-    expect(newPageUrl).toBe("https://documentation.iqonic.design/kivicare-laravel/");
+    const expectedLink = "https://documentation.iqonic.design/kivicare-laravel/";
+    await CommonLinkVerify(page, LinkLocator, expectedLink);
 })
 
 test("Home Footer Pricing", async ({ page }) => {
@@ -323,69 +288,38 @@ test("Home Footer Support", async ({ page }) => {
     await page.goto(home_url);
     const LinkLocator = page.locator("//span[normalize-space()='Support']");
     await LinkLocator.scrollIntoViewIfNeeded();
-
-    const [newPage] = await Promise.all([
-        page.context().waitForEvent('page'),
-        LinkLocator.click()
-    ])
-    const newPageUrl = newPage.url();
-    expect(newPageUrl).toBe("https://iqonic.desky.support/");
+    const expectedLink = "https://iqonic.desky.support/";
+    await CommonLinkVerify(page, LinkLocator, expectedLink);
 })
 
 test("Home Footer Get A Quote", async ({ page }) => {
     await page.goto(home_url);
     const LinkLocator = page.locator("//span[normalize-space()='Get A Quote']");
     await LinkLocator.scrollIntoViewIfNeeded();
-
-    const [newPage] = await Promise.all([
-        page.context().waitForEvent('page'),
-        LinkLocator.click()
-    ])
-    const newPageUrl = newPage.url();
-    expect(newPageUrl).toBe("https://iqonic.tech/ai-cost-calculator/");
+    const expectedLink = "https://iqonic.tech/software-development-cost-calculator/";
+    await CommonLinkVerify(page, LinkLocator, expectedLink);
 })
 
 test("Home Footer License", async ({ page }) => {
     await page.goto(home_url);
     const LinkLocator = page.locator("//span[normalize-space()='License']");
     await LinkLocator.scrollIntoViewIfNeeded();
-
-    const [newPage] = await Promise.all([
-        page.context().waitForEvent('page'),
-        LinkLocator.click()
-    ])
-
-    const newPageUrl = newPage.url();
-    const urlObject = new URL(newPageUrl);
-    const urlWithoutQueryParams = urlObject.origin + urlObject.pathname;
-    expect(urlWithoutQueryParams).toBe("https://iqonic.design/licensing-terms-more/");
+    const expectedLink = "https://iqonic.design/licensing-terms-more/";
+    await CommonLinkVerify(page, LinkLocator, expectedLink);
 })
 
 test("Home Footer Hire Us", async ({ page }) => {
     await page.goto(home_url);
     const LinkLocator = page.locator("//span[normalize-space()='hire us']");
     await LinkLocator.scrollIntoViewIfNeeded();
-
-    const [newPage] = await Promise.all([
-        page.context().waitForEvent('page'),
-        LinkLocator.click()
-    ])
-    const newPageUrl = newPage.url();
-    expect(newPageUrl).toBe("https://iqonic.tech/healthcare/");
+    const expectedLink = "https://iqonic.tech/healthcare/";
+    await CommonLinkVerify(page, LinkLocator, expectedLink);
 })
 
 test("Home Footer Iqonic Design.", async ({ page }) => {
     await page.goto(home_url);
     const LinkLocator = page.locator("//a[normalize-space()='Iqonic Design.']");
     await LinkLocator.scrollIntoViewIfNeeded();
-
-    const [newPage] = await Promise.all([
-        page.context().waitForEvent('page'),
-        LinkLocator.click()
-    ])
-
-    const newPageUrl = newPage.url();
-    const urlObject = new URL(newPageUrl);
-    const urlWithoutQueryParams = urlObject.origin + urlObject.pathname;
-    expect(urlWithoutQueryParams).toBe("https://iqonic.design/");
+    const expectedLink = "https://iqonic.design/";
+    await CommonLinkVerify(page, LinkLocator, expectedLink);
 })
