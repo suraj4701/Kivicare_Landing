@@ -97,7 +97,7 @@ const EmployeeAppAppstore = async (page, locator) => {
     ])
     const newPageUrl = newPage.url();
     expect(newPageUrl).toBe("https://apps.apple.com/in/app/kivicare-employee/id6502933651");
-    const trustpilotLocator = newPage.locator("//header/h1[1]");
+    const trustpilotLocator = newPage.locator("//h1[normalize-space()='KiviCare Employee']");
     const verifytext = await trustpilotLocator.textContent();
     expect(verifytext).toContain('KiviCare Employee');
     return newPage;

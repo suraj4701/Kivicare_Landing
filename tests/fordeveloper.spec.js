@@ -1,5 +1,5 @@
-import { expect, test } from '@playwright/test';
-import { BookcallVerify, EmployeeAppAppstore, EmployeeAppPlaystore, EnvantoVerify, PatientAppPlaystore, TrustpilotVerify } from './common';
+import { test } from '@playwright/test';
+import { BookcallVerify, CommonLinkVerify, EmployeeAppAppstore, EmployeeAppPlaystore, EnvantoVerify, PatientAppPlaystore, TrustpilotVerify } from './common';
 const home_url = process.env.HOME_URL;
 
 test("ForDeveloper Trustpilot Verify", async ({ page }) => {
@@ -32,13 +32,7 @@ test("ForDeveloper clinic and patient management system", async ({ page }) => {
     await page.locator("//li[@id='menu-item-1284']").click()
     const LinkLocator = page.locator("//a[contains(text(),'clinic and patient management system')]");
     await LinkLocator.scrollIntoViewIfNeeded();
-
-    const [newPage] = await Promise.all([
-        page.context().waitForEvent('page'),
-        LinkLocator.click()
-    ])
-    const newPageUrl = newPage.url();
-    expect(newPageUrl).toBe(home_url);
+    await CommonLinkVerify(page, LinkLocator, home_url);
 })
 
 test("ForDeveloper Patient App Playstore", async ({ page }) => {
@@ -74,13 +68,8 @@ test("ForDeveloper custom development", async ({ page }) => {
     await page.locator("//li[@id='menu-item-1284']").click()
     const LinkLocator = page.locator("//a[contains(text(),'custom development')]");
     await LinkLocator.scrollIntoViewIfNeeded();
-
-    const [newPage] = await Promise.all([
-        page.context().waitForEvent('page'),
-        LinkLocator.click()
-    ])
-    const newPageUrl = newPage.url();
-    expect(newPageUrl).toBe("https://iqonic.tech/healthcare/");
+    const expectedLink = "https://iqonic.tech/healthcare/";
+    await CommonLinkVerify(page, LinkLocator, expectedLink);
 })
 
 test("ForDeveloper tech support team", async ({ page }) => {
@@ -89,11 +78,6 @@ test("ForDeveloper tech support team", async ({ page }) => {
     await page.locator("//li[@id='menu-item-1284']").click()
     const LinkLocator = page.locator("//a[contains(text(),'tech support team')]");
     await LinkLocator.scrollIntoViewIfNeeded();
-
-    const [newPage] = await Promise.all([
-        page.context().waitForEvent('page'),
-        LinkLocator.click()
-    ])
-    const newPageUrl = newPage.url();
-    expect(newPageUrl).toBe("https://iqonic.desky.support/");
+    const expectedLink = "https://iqonic.desky.support/";
+    await CommonLinkVerify(page, LinkLocator, expectedLink);
 })
