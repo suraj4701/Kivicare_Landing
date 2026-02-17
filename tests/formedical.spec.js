@@ -1,5 +1,5 @@
 import { expect, test } from '@playwright/test';
-import { BookcallVerify, EnvantoVerify, TrustpilotVerify } from './common';
+import { BookcallVerify, CommonLinkVerify, EnvantoVerify, TrustpilotVerify } from './common';
 const home_url = process.env.HOME_URL;
 
 test("ForMedicalProfessional Trustpilot Verify", async ({ page }) => {
@@ -47,13 +47,8 @@ test("ForMedicalProfessional support team", async ({ page }) => {
     await page.locator("//li[@id='menu-item-1283']").click()
     const LinkLocator = page.locator("//a[contains(text(),'support team')]");
     await LinkLocator.scrollIntoViewIfNeeded();
-
-    const [newPage] = await Promise.all([
-        page.context().waitForEvent('page'),
-        LinkLocator.click()
-    ])
-    const newPageUrl = newPage.url();
-    expect(newPageUrl).toBe("https://iqonic.desky.support/");
+    const expectedLink = "https://iqonic.desky.support/";
+    await CommonLinkVerify(page, LinkLocator, expectedLink);
 })
 
 test("ForMedicalProfessional custom development", async ({ page }) => {
@@ -62,11 +57,6 @@ test("ForMedicalProfessional custom development", async ({ page }) => {
     await page.locator("//li[@id='menu-item-1283']").click()
     const LinkLocator = page.locator("//a[contains(text(),'custom development')]");
     await LinkLocator.scrollIntoViewIfNeeded();
-
-    const [newPage] = await Promise.all([
-        page.context().waitForEvent('page'),
-        LinkLocator.click()
-    ])
-    const newPageUrl = newPage.url();
-    expect(newPageUrl).toBe("https://iqonic.tech/");
+    const expectedLink = "https://iqonic.tech/";
+    await CommonLinkVerify(page, LinkLocator, expectedLink);
 })

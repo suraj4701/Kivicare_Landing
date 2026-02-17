@@ -12,6 +12,12 @@ const PatientWebsiteVerify = async (page, locator) => {
     return newPage;
 }
 
+const PatientWebsiteLoginVerify = async (page, locator) => {
+    const newPage = await CommonLinkVerify(page, locator, "https://apps.iqonic.design/kivicare-laravel/login");
+    await newPage.waitForLoadState('networkidle');
+    return newPage;
+}
+
 const AdminPanelVerify = async (page, locator) => {
 
     const [newPage] = await Promise.all([
@@ -129,4 +135,4 @@ const CommonLinkVerify = async (page, locator, link) => {
     return newPage;
 }
 
-module.exports = { PatientWebsiteVerify, BookcallVerify, AdminPanelVerify, TrustpilotVerify, EnvantoVerify, EnvantoKivicareVerify, PatientAppPlaystore, EmployeeAppPlaystore, EmployeeAppAppstore, CommonLinkVerify };
+module.exports = { PatientWebsiteVerify, BookcallVerify, AdminPanelVerify, TrustpilotVerify, EnvantoVerify, EnvantoKivicareVerify, PatientAppPlaystore, EmployeeAppPlaystore, EmployeeAppAppstore, CommonLinkVerify, PatientWebsiteLoginVerify };
