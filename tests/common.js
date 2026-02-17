@@ -67,6 +67,18 @@ const EnvantoKivicareVerify = async (page, locator) => {
     return newPage;
 }
 
+const EnvantoKivicarePharmaVerify = async (page, locator) => {
+
+    const [newPage] = await Promise.all([
+        page.context().waitForEvent('page'),
+        locator.click()
+    ])
+    const iqonicDesignSpanLocator = newPage.locator("//h1[@class='t-heading -color-inherit -size-l h-m0 is-hidden-phone']");
+    const verifytext = await iqonicDesignSpanLocator.textContent();
+    expect(verifytext).toContain('KiviCare(TM) Pharma- Pharmacy & Inventory Management System Laravel');
+    return newPage;
+}
+
 const PatientAppPlaystore = async (page, locator) => {
 
     const [newPage] = await Promise.all([
@@ -135,4 +147,4 @@ const CommonLinkVerify = async (page, locator, link) => {
     return newPage;
 }
 
-module.exports = { PatientWebsiteVerify, BookcallVerify, AdminPanelVerify, TrustpilotVerify, EnvantoVerify, EnvantoKivicareVerify, PatientAppPlaystore, EmployeeAppPlaystore, EmployeeAppAppstore, CommonLinkVerify, PatientWebsiteLoginVerify };
+module.exports = { PatientWebsiteVerify, BookcallVerify, AdminPanelVerify, TrustpilotVerify, EnvantoVerify, EnvantoKivicareVerify, PatientAppPlaystore, EmployeeAppPlaystore, EmployeeAppAppstore, CommonLinkVerify, EnvantoKivicarePharmaVerify, PatientWebsiteLoginVerify };
