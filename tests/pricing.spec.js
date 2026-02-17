@@ -1,5 +1,5 @@
 import { expect, test } from '@playwright/test';
-import { EnvantoKivicareVerify } from './common';
+import { CommonLinkVerify, EnvantoKivicareEcoSystemVerify, EnvantoKivicareVerify } from './common';
 const home_url = process.env.HOME_URL;
 
 test("Pricing buy", async ({ page }) => {
@@ -22,13 +22,8 @@ test("Pricing Buy 2", async ({ page }) => {
     await page.locator("//li[@id='menu-item-1604']").click();
     const LinkLocator = page.locator("//body/div[@id='main-container']/main[@id='main']/div[1]/article[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[3]/div[2]");
     await LinkLocator.scrollIntoViewIfNeeded();
-
-    const [newPage] = await Promise.all([
-        page.context().waitForEvent('page'),
-        LinkLocator.click()
-    ])
-    const newPageUrl = newPage.url();
-    expect(newPageUrl).toBe("https://service.iqonic.design/services/kivicare-flutter-app-with-laravel-backend/");
+    const expectedLink = "https://service.iqonic.design/services/kivicare-flutter-app-with-laravel-backend/";
+    await CommonLinkVerify(page, LinkLocator, expectedLink);
 })
 
 test("Pricing Envanto Kivicare Verify", async ({ page }) => {
@@ -43,33 +38,21 @@ test("Hire Us", async ({ page }) => {
     await page.goto(home_url);
     const LinkLocator = page.locator("//li[@id='menu-item-835']")
     await LinkLocator.scrollIntoViewIfNeeded();
-
-    const [newPage] = await Promise.all([
-        page.context().waitForEvent('page'),
-        LinkLocator.click()
-    ])
-    const newPageUrl = newPage.url();
-    expect(newPageUrl).toBe("https://iqonic.tech/healthcare/");
+    const expectedLink = "https://iqonic.tech/healthcare/";
+    await CommonLinkVerify(page, LinkLocator, expectedLink);
 })
 
 test("Book Demo Call", async ({ page }) => {
     await page.goto(home_url);
     const LinkLocator = page.locator("//li[@id='menu-item-15172']")
     await LinkLocator.scrollIntoViewIfNeeded();
-
-    const [newPage] = await Promise.all([
-        page.context().waitForEvent('page'),
-        LinkLocator.click()
-    ])
-    const newPageUrl = newPage.url();
-    const urlObject = new URL(newPageUrl);
-    const urlWithoutQueryParams = urlObject.origin + urlObject.pathname;
-    expect(urlWithoutQueryParams).toBe("https://laravel.kivicare.io/kivicare-laravel-demo-call/");
+    const expectedLink = "https://laravel.kivicare.io/kivicare-laravel-demo-call/";
+    await CommonLinkVerify(page, LinkLocator, expectedLink);
 })
 
 test("Buy now", async ({ page }) => {
     await page.goto(home_url);
     const EnvantoKivicareVerifyLocator = page.locator("//header/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/a[1]")
     await EnvantoKivicareVerifyLocator.scrollIntoViewIfNeeded();
-    await EnvantoKivicareVerify(page, EnvantoKivicareVerifyLocator);
+    await EnvantoKivicareEcoSystemVerify(page, EnvantoKivicareVerifyLocator);
 })

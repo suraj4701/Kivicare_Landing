@@ -67,6 +67,18 @@ const EnvantoKivicareVerify = async (page, locator) => {
     return newPage;
 }
 
+const EnvantoKivicareEcoSystemVerify = async (page, locator) => {
+
+    const [newPage] = await Promise.all([
+        page.context().waitForEvent('page'),
+        locator.click()
+    ])
+    const iqonicDesignSpanLocator = newPage.locator("//h1[normalize-space()='KiviCare Laravel Eco system']");
+    const verifytext = await iqonicDesignSpanLocator.textContent();
+    expect(verifytext).toContain('KiviCare Laravel Eco system');
+    return newPage;
+}
+
 const EnvantoKivicarePharmaVerify = async (page, locator) => {
 
     const [newPage] = await Promise.all([
@@ -147,4 +159,4 @@ const CommonLinkVerify = async (page, locator, link) => {
     return newPage;
 }
 
-module.exports = { PatientWebsiteVerify, BookcallVerify, AdminPanelVerify, TrustpilotVerify, EnvantoVerify, EnvantoKivicareVerify, PatientAppPlaystore, EmployeeAppPlaystore, EmployeeAppAppstore, CommonLinkVerify, EnvantoKivicarePharmaVerify, PatientWebsiteLoginVerify };
+module.exports = { PatientWebsiteVerify, BookcallVerify, AdminPanelVerify, TrustpilotVerify, EnvantoVerify, EnvantoKivicareVerify, EnvantoKivicareEcoSystemVerify, PatientAppPlaystore, EmployeeAppPlaystore, EmployeeAppAppstore, CommonLinkVerify, EnvantoKivicarePharmaVerify, PatientWebsiteLoginVerify };
