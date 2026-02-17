@@ -1,5 +1,5 @@
-import { expect, test } from '@playwright/test';
-import { AdminPanelVerify, BookcallVerify, EmployeeAppAppstore, EmployeeAppPlaystore, EnvantoVerify, PatientAppPlaystore, PatientWebsiteVerify, TrustpilotVerify } from './common';
+import { test } from '@playwright/test';
+import { AdminPanelVerify, BookcallVerify, CommonLinkVerify, EmployeeAppAppstore, EmployeeAppPlaystore, EnvantoVerify, PatientAppPlaystore, PatientWebsiteVerify, TrustpilotVerify } from './common';
 const home_url = process.env.HOME_URL;
 
 test("ExploreNow Trustpilot Verify", async ({ page }) => {
@@ -40,7 +40,7 @@ test("ExploreNow Envanto Verify", async ({ page }) => {
     await EnvantoVerify(newPage, EnvantoVerifyLocator);
 })
 
-test("ExploreNow Patient App Playstore", async ({ page }) => {
+test("ExploreNow Pharma App Playstore", async ({ page }) => {
     await page.goto(home_url);
     const explorenow = page.locator("//header/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/a[1]");
 
@@ -49,10 +49,24 @@ test("ExploreNow Patient App Playstore", async ({ page }) => {
         explorenow.click()
     ])
 
-    const adminpanelLocator = newPage.locator("//body/div[@id='main-container']/main[@id='main']/div[1]/article[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/a[1]");
+    const adminpanelLocator = newPage.locator("//div[@class='elementor-element elementor-element-380a5b9 elementor-widget elementor-widget-image']//a");
     await adminpanelLocator.scrollIntoViewIfNeeded();
-    await PatientAppPlaystore(newPage, adminpanelLocator);
+    await EmployeeAppPlaystore(newPage, adminpanelLocator);
 })
+
+// test("ExploreNow Pharma App Appstore", async ({ page }) => {
+//     await page.goto(home_url);
+//     const explorenow = page.locator("//header/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/a[1]");
+
+//     const [newPage] = await Promise.all([
+//         page.context().waitForEvent('page'),
+//         explorenow.click()
+//     ])
+
+//     const adminpanelLocator = newPage.locator("//div[@class='elementor-element elementor-element-bab1dda elementor-widget elementor-widget-image']//img[@class='attachment-large size-large wp-image-2008']");
+//     await adminpanelLocator.scrollIntoViewIfNeeded();
+//     await EmployeeAppAppstore(newPage, adminpanelLocator);
+// })
 
 test("ExploreNow Employee App Playstore", async ({ page }) => {
     await page.goto(home_url);
@@ -63,7 +77,7 @@ test("ExploreNow Employee App Playstore", async ({ page }) => {
         explorenow.click()
     ])
 
-    const adminpanelLocator = newPage.locator("//body/div[@id='main-container']/main[@id='main']/div[1]/article[1]/div[1]/div[1]/div[2]/div[1]/div[3]/div[1]/div[3]/div[1]/div[1]/div[1]/a[1]");
+    const adminpanelLocator = newPage.locator("//div[@class='elementor-element elementor-element-ab2b81e elementor-widget elementor-widget-image']//a");
     await adminpanelLocator.scrollIntoViewIfNeeded();
     await EmployeeAppPlaystore(newPage, adminpanelLocator);
 })
@@ -77,12 +91,12 @@ test("ExploreNow Employee App Appstore", async ({ page }) => {
         explorenow.click()
     ])
 
-    const adminpanelLocator = newPage.locator("//body/div[@id='main-container']/main[@id='main']/div[1]/article[1]/div[1]/div[1]/div[2]/div[1]/div[3]/div[1]/div[3]/div[1]/div[2]/div[1]/a[1]");
+    const adminpanelLocator = newPage.locator("//div[@class='elementor-element elementor-element-9abd85c elementor-widget elementor-widget-image']//img[@class='attachment-large size-large wp-image-2008']");
     await adminpanelLocator.scrollIntoViewIfNeeded();
     await EmployeeAppAppstore(newPage, adminpanelLocator);
 })
 
-test("ExploreNow View Demo", async ({ page }) => {
+test("ExploreNow Patient App Playstore", async ({ page }) => {
     await page.goto(home_url);
     const explorenow = page.locator("//header/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/a[1]");
 
@@ -91,9 +105,9 @@ test("ExploreNow View Demo", async ({ page }) => {
         explorenow.click()
     ])
 
-    const adminpanelLocator = newPage.locator("//a[contains(@href,'https://apps.iqonic.design/kivicare-laravel/admin/login')]");
+    const adminpanelLocator = newPage.locator("//img[@title='p-store']");
     await adminpanelLocator.scrollIntoViewIfNeeded();
-    await AdminPanelVerify(newPage, adminpanelLocator);
+    await PatientAppPlaystore(newPage, adminpanelLocator);
 })
 
 test("ExploreNow Patinet Website Verify", async ({ page }) => {
@@ -110,6 +124,20 @@ test("ExploreNow Patinet Website Verify", async ({ page }) => {
     await PatientWebsiteVerify(newPage, patientwebsiteLocator);
 })
 
+test("ExploreNow View Demo", async ({ page }) => {
+    await page.goto(home_url);
+    const explorenow = page.locator("//header/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/a[1]");
+
+    const [newPage] = await Promise.all([
+        page.context().waitForEvent('page'),
+        explorenow.click()
+    ])
+
+    const adminpanelLocator = newPage.locator("//a[contains(@href,'https://apps.iqonic.design/kivicare-laravel/admin/login')]");
+    await adminpanelLocator.scrollIntoViewIfNeeded();
+    await AdminPanelVerify(newPage, adminpanelLocator);
+})
+
 test("ExploreNow Contact Us", async ({ page }) => {
     await page.goto(home_url);
     const explorenow = page.locator("//header/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/a[1]");
@@ -119,13 +147,8 @@ test("ExploreNow Contact Us", async ({ page }) => {
         explorenow.click()
     ])
 
-    const Locator = newPage.locator("//div[contains(@class,'elementor-element elementor-element-e9be904 elementor-align-left elementor-widget elementor-widget-elementskit-button')]//a[contains(@class,'whitespace--normal')][normalize-space()='Contact Us']");
+    const Locator = newPage.locator("//a[normalize-space()='Contact Us']");
     await Locator.scrollIntoViewIfNeeded();
-
-    const [newPage1] = await Promise.all([
-        newPage.context().waitForEvent('page'),
-        Locator.click()
-    ])
-    const newPageUrl = newPage1.url();
-    expect(newPageUrl).toBe("https://iqonic.tech/contact-us/");
+    const expectedLink = "https://iqonic.tech/contact-us/";
+    await CommonLinkVerify(newPage, Locator, expectedLink);
 })
