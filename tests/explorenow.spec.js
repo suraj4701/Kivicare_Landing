@@ -54,19 +54,19 @@ test("ExploreNow Pharma App Playstore", async ({ page }) => {
     await EmployeeAppPlaystore(newPage, adminpanelLocator);
 })
 
-// test("ExploreNow Pharma App Appstore", async ({ page }) => {
-//     await page.goto(home_url);
-//     const explorenow = page.locator("//header/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/a[1]");
+test("ExploreNow Pharma App Appstore", async ({ page }) => {
+    await page.goto(home_url);
+    const explorenow = page.locator("//header/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/a[1]");
 
-//     const [newPage] = await Promise.all([
-//         page.context().waitForEvent('page'),
-//         explorenow.click()
-//     ])
+    const [newPage] = await Promise.all([
+        page.context().waitForEvent('page'),
+        explorenow.click()
+    ])
 
-//     const adminpanelLocator = newPage.locator("//div[@class='elementor-element elementor-element-bab1dda elementor-widget elementor-widget-image']//img[@class='attachment-large size-large wp-image-2008']");
-//     await adminpanelLocator.scrollIntoViewIfNeeded();
-//     await EmployeeAppAppstore(newPage, adminpanelLocator);
-// })
+    const adminpanelLocator = newPage.locator("//div[@class='elementor-element elementor-element-bab1dda elementor-widget elementor-widget-image']//img[@class='attachment-large size-large wp-image-2008']");
+    await adminpanelLocator.scrollIntoViewIfNeeded();
+    await EmployeeAppAppstore(newPage, adminpanelLocator);
+})
 
 test("ExploreNow Employee App Playstore", async ({ page }) => {
     await page.goto(home_url);
