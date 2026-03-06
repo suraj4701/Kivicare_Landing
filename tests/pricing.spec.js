@@ -1,20 +1,13 @@
-import { expect, test } from '@playwright/test';
+import { test } from '@playwright/test';
 import { CommonLinkVerify, EnvantoKivicareEcoSystemVerify, EnvantoKivicareVerify } from './common';
 const home_url = process.env.HOME_URL;
 
 test("Pricing buy", async ({ page }) => {
     await page.goto(home_url);
     await page.locator("//li[@id='menu-item-1604']").click();
-    const LinkLocator = page.locator("//body/div[@id='main-container']/main[@id='main']/div[1]/article[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[2]/div[3]/div[1]/ul[1]/li[1]/a[1]");
+    const LinkLocator = page.locator("//div[@class='elementor-element elementor-element-096cbb5 elementor-widget__width-auto elementor-widget elementor-widget-button']//a[@class='elementor-button elementor-button-link elementor-size-md']");
     await LinkLocator.scrollIntoViewIfNeeded();
-
-    const [newPage] = await Promise.all([
-        page.context().waitForEvent('page'),
-        LinkLocator.click()
-    ])
-    const Locator = newPage.locator("//header/div[1]/h3[1]/span[1]");
-    const verifytext = await Locator.textContent();
-    expect(verifytext).toContain('Create Account');
+    await EnvantoKivicareVerify(page, LinkLocator);
 })
 
 test("Pricing Buy 2", async ({ page }) => {
