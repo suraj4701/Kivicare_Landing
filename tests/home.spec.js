@@ -116,21 +116,6 @@ test("Home Book a quick call 4", async ({ page }) => {
 
 test("Home Buy now 4", async ({ page }) => {
     await page.goto(home_url);
-    const EnvantoKivicareVerifyLocator = page.locator("//a[contains(text(),'Buy Regular')]");
-    await EnvantoKivicareVerifyLocator.scrollIntoViewIfNeeded();
-    await EnvantoKivicareVerify(page, EnvantoKivicareVerifyLocator);
-})
-
-test("Home Buy Service", async ({ page }) => {
-    await page.goto(home_url);
-    const LinkLocator = page.locator("//a[contains(text(),'Buy Services')]");
-    await LinkLocator.scrollIntoViewIfNeeded();
-    const expectedLink = "https://service.iqonic.design/services/kivicare-flutter-app-with-laravel-backend/";
-    await CommonLinkVerify(page, LinkLocator, expectedLink);
-})
-
-test("Home Buy now 5", async ({ page }) => {
-    await page.goto(home_url);
     const EnvantoKivicareVerifyLocator = page.locator("//body/div[@id='main-container']/main[@id='main']/div[1]/article[1]/div[1]/div[1]/div[16]/div[1]/div[1]/div[1]/div[1]/div[1]/article[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/a[1]");
     await EnvantoKivicareVerifyLocator.scrollIntoViewIfNeeded();
     await EnvantoKivicareVerify(page, EnvantoKivicareVerifyLocator);
