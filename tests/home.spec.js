@@ -32,19 +32,9 @@ test("Home Book a quick call", async ({ page }) => {
     await BookcallVerify(page, EnvantoVerifyLocator);
 })
 
-test("Home Explore Patients Website", async ({ page }) => {
-    await page.goto(home_url);
-    const LinkLocator = page.locator("//body/div[@id='main-container']/main[@id='main']/div[1]/article[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]");
-    await LinkLocator.scrollIntoViewIfNeeded();
-    await LinkLocator.click();
-    await page.waitForURL("https://laravel.kivicare.io/product/patient-management-website-in-laravel/")
-    const newPageUrl = page.url();
-    expect(newPageUrl).toBe("https://laravel.kivicare.io/product/patient-management-website-in-laravel/");
-});
-
 test("Home Explore Patients App", async ({ page }) => {
     await page.goto(home_url);
-    const LinkLocator = page.locator("//body/div[@id='main-container']/main[@id='main']/div[1]/article[1]/div[1]/div[1]/div[4]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]");
+    const LinkLocator = page.locator("//a[normalize-space()='Explore Patients App']");
     await LinkLocator.scrollIntoViewIfNeeded();
     await LinkLocator.click();
     await page.waitForURL("https://laravel.kivicare.io/product/laravel-clinic-management-patient-app/")
@@ -54,7 +44,7 @@ test("Home Explore Patients App", async ({ page }) => {
 
 test("Home Explore Doctor App", async ({ page }) => {
     await page.goto(home_url);
-    const LinkLocator = page.locator("//body/div[@id='main-container']/main[@id='main']/div[1]/article[1]/div[1]/div[1]/div[5]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]");
+    const LinkLocator = page.locator("//a[normalize-space()='Explore Doctor App']");
     await LinkLocator.scrollIntoViewIfNeeded();
     await LinkLocator.click();
     await page.waitForURL("https://laravel.kivicare.io/product/clinic-management-admin-app/")
@@ -62,9 +52,29 @@ test("Home Explore Doctor App", async ({ page }) => {
     expect(newPageUrl).toBe("https://laravel.kivicare.io/product/clinic-management-admin-app/");
 });
 
+test("Home Explore Pharma App", async ({ page }) => {
+    await page.goto(home_url);
+    const LinkLocator = page.locator("//a[normalize-space()='Explore Pharma App']");
+    await LinkLocator.scrollIntoViewIfNeeded();
+    await LinkLocator.click();
+    await page.waitForURL("https://laravel.kivicare.io/pharma-app/")
+    const newPageUrl = page.url();
+    expect(newPageUrl).toBe("https://laravel.kivicare.io/pharma-app/");
+});
+
+test("Home Explore Laboratorist App", async ({ page }) => {
+    await page.goto(home_url);
+    const LinkLocator = page.locator("//a[normalize-space()='Explore Laboratorist App']");
+    await LinkLocator.scrollIntoViewIfNeeded();
+    await LinkLocator.click();
+    await page.waitForURL("https://laravel.kivicare.io/laboratorist-app/")
+    const newPageUrl = page.url();
+    expect(newPageUrl).toBe("https://laravel.kivicare.io/laboratorist-app/");
+});
+
 test("Home Explore Admin Panel", async ({ page }) => {
     await page.goto(home_url);
-    const LinkLocator = page.locator("//body/div[@id='main-container']/main[@id='main']/div[1]/article[1]/div[1]/div[1]/div[6]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]");
+    const LinkLocator = page.locator("//a[normalize-space()='Explore Admin Panel']");
     await LinkLocator.scrollIntoViewIfNeeded();
     await LinkLocator.click();
     await page.waitForURL("https://laravel.kivicare.io/product/admin-panel/")
@@ -72,30 +82,40 @@ test("Home Explore Admin Panel", async ({ page }) => {
     expect(newPageUrl).toBe("https://laravel.kivicare.io/product/admin-panel/");
 });
 
+test("Home Explore Patients Website", async ({ page }) => {
+    await page.goto(home_url);
+    const LinkLocator = page.locator("//a[normalize-space()='Explore Patients Website']");
+    await LinkLocator.scrollIntoViewIfNeeded();
+    await LinkLocator.click();
+    await page.waitForURL("https://laravel.kivicare.io/product/patient-management-website-in-laravel/")
+    const newPageUrl = page.url();
+    expect(newPageUrl).toBe("https://laravel.kivicare.io/product/patient-management-website-in-laravel/");
+});
+
 test("Home Book a quick call 2", async ({ page }) => {
     await page.goto(home_url);
-    const EnvantoVerifyLocator = page.locator("//body/div[@id='main-container']/main[@id='main']/div[1]/article[1]/div[1]/div[1]/div[7]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/a[1]");
+    const EnvantoVerifyLocator = page.locator("//a[contains(text(),'Still wondering if KiviCare Laravel suits your bus')]");
     await EnvantoVerifyLocator.scrollIntoViewIfNeeded();
     await BookcallVerify(page, EnvantoVerifyLocator);
 })
 
 test("Home Book a quick call 3", async ({ page }) => {
     await page.goto(home_url);
-    const EnvantoVerifyLocator = page.locator("//body/div[@id='main-container']/main[@id='main']/div[1]/article[1]/div[1]/div[1]/div[10]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/a[1]");
+    const EnvantoVerifyLocator = page.locator("//a[contains(text(),'Still exploring? Let us show how KiviCare Laravel ')]");
     await EnvantoVerifyLocator.scrollIntoViewIfNeeded();
     await BookcallVerify(page, EnvantoVerifyLocator);
 })
 
 test("Home Buy now", async ({ page }) => {
     await page.goto(home_url);
-    const EnvantoKivicareVerifyLocator = page.locator("//body/div[@id='main-container']/main[@id='main']/div[1]/article[1]/div[1]/div[1]/div[11]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/a[1]");
+    const EnvantoKivicareVerifyLocator = page.locator("//div[contains(@class,'elementor-element elementor-element-22c899a elementor-align-center elementor-widget elementor-widget-elementskit-button')]//a[contains(@class,'whitespace--normal')][normalize-space()='Buy Now']");
     await EnvantoKivicareVerifyLocator.scrollIntoViewIfNeeded();
     await EnvantoKivicareVerify(page, EnvantoKivicareVerifyLocator);
 })
 
 test("Home Buy now 2", async ({ page }) => {
     await page.goto(home_url);
-    const EnvantoKivicareVerifyLocator = page.locator("//body/div[@id='main-container']/main[@id='main']/div[1]/article[1]/div[1]/div[1]/div[12]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/a[1]");
+    const EnvantoKivicareVerifyLocator = page.locator("//div[contains(@class,'elementor-element elementor-element-336a468 elementor-align-center elementor-widget elementor-widget-elementskit-button')]//a[contains(@class,'whitespace--normal')][normalize-space()='Buy Now']");
     await EnvantoKivicareVerifyLocator.scrollIntoViewIfNeeded();
     await EnvantoKivicareVerify(page, EnvantoKivicareVerifyLocator);
 })
@@ -116,14 +136,14 @@ test("Home Book a quick call 4", async ({ page }) => {
 
 test("Home Buy now 4", async ({ page }) => {
     await page.goto(home_url);
-    const EnvantoKivicareVerifyLocator = page.locator("//body/div[@id='main-container']/main[@id='main']/div[1]/article[1]/div[1]/div[1]/div[16]/div[1]/div[1]/div[1]/div[1]/div[1]/article[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/a[1]");
+    const EnvantoKivicareVerifyLocator = page.locator("//div[contains(@class,'elementor-element elementor-element-1bce3ec elementor-align-left elementor-widget elementor-widget-elementskit-button')]//a[contains(@class,'whitespace--normal')][normalize-space()='Buy Now']");
     await EnvantoKivicareVerifyLocator.scrollIntoViewIfNeeded();
     await EnvantoKivicareVerify(page, EnvantoKivicareVerifyLocator);
 })
 
 test("Home Try Demo", async ({ page }) => {
     await page.goto(home_url);
-    const LinkLocator = page.locator("//body/div[@id='main-container']/main[@id='main']/div[1]/article[1]/div[1]/div[1]/div[16]/div[1]/div[1]/div[1]/div[1]/div[1]/article[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/a[1]");
+    const LinkLocator = page.locator("//a[normalize-space()='Try demo']");
     await LinkLocator.scrollIntoViewIfNeeded();
     const expectedLink = "https://laravel.kivicare.io/explore-demo/";
     await CommonLinkVerify(page, LinkLocator, expectedLink);
